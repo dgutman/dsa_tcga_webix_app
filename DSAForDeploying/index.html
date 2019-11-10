@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Digital Slide Archive (DSA)</title>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=<%= htmlWebpackPlugin.options.GAScriptId %>"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', '<%= htmlWebpackPlugin.options.GAScriptId %>');
+	</script>
+
+	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+
+	<!-- <script type="text/javascript" src="//cdn.webix.com/edge/webix.js"></script>
+	<link rel="stylesheet" type="text/css" href="//cdn.webix.com/edge/webix.css"> -->
+
+	<script type="text/javascript" src="./node_modules/webix/webix.js"></script>
+	<link rel="stylesheet" type="text/css" href="./node_modules/webix/webix.css">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<script type="text/javascript" src="./node_modules/openseadragon/build/openseadragon/openseadragon.min.js"></script>
+	<script type="text/javascript" src="./plugin/svg-overlay-master/openseadragon-svg-overlay.js"></script>
+</head>
+<body></body>
+</html>

@@ -1,0 +1,407 @@
+/* HEADER STYLE */
+.login_button button{
+    border:1px solid#3498db;
+    border-radius:10px;
+    font-size: 14px;
+}
+
+.header_menu a.webix_list_item.menu{
+    color: black;
+    font-size: 14px;
+    font-weight: 500;
+    padding:3px 20px;
+}
+
+.header_menu{
+    margin-top: 10px !important;
+}
+
+.header_menu a.webix_list_item.menu:hover{
+    /* background: #fafafa; */
+    color: #3498db;
+}
+
+.header_menu a.webix_list_item.menu:first-child{
+    border-right:1px solid black;
+}
+
+.white_button button, .white_button button:hover, .white_button button:active, 
+.white_button button:visited, .white_button button:focus, .header_menu a.webix_list_item.menu{
+    background:white;
+}
+
+.vertical_line{
+    width: 1px; 
+    height: 19px; 
+    background-color: black; 
+    margin-top:14px;
+}
+
+.vertical_line_container .webix_template{
+    padding:0;
+}
+
+.main_header_container{
+    box-shadow: 0 14px 28px #f0f3f8;
+}
+/* END HEADER STYLE */
+
+/* LEFT PANEL STYLE */
+
+.webix_el_combo input, .webix_el_richselect .webix_inp_static{
+    border-radius: 10px;
+    padding:1px 18px;
+}
+
+.webix_view.webix_resizer.webix_resizer_x{ 
+    border-width:0 !important;
+    background-color:#f0f3f8;
+}
+
+.pager_buttons .webix_pager_item, .pager_buttons .webix_pager_item:hover, 
+.pager_buttons .webix_pager_item:focus, .pager_buttons .webix_pager_item:active,
+.page_counter{
+    color:#255b87;
+    background: transparent;
+}
+
+.pager_buttons, .page_counter{
+    height:20px;
+    display: inline-block;
+}
+
+
+.blue_label .webix_accordionitem_header .webix_accordionitem_label{
+    color:#3498db;
+    letter-spacing: 1px;
+    font-size:18px;
+    padding-left: 27px;
+}
+
+.sidemenu_placeholder_template{
+    display: inline-block;
+}
+
+.test .webix_template{
+    text-align: center;
+}
+
+.grey_counter{
+    color: #84a0b6;
+}
+
+ .webix_dataview_item img {
+    width:100%;
+    height:100%;
+    border-radius: 15px;
+}
+
+.webix_dataview_item, .webix_dataview_item.webix_selected{
+    padding:0;
+     padding:4px 6px; 
+     border: none;
+} 
+
+.webix_dataview_item.webix_selected{
+    border-radius: 15px;
+}
+
+.webix_dataview_item.webix_selected img{
+    border: 2px solid #3498db;
+}
+
+.webix_dataview_item.webix_selected .sidemenu_img_label{
+    background-color: #3498db;
+    width: 88px;
+    height: 25px;
+    position: relative;
+    border-radius: 0px 0px 15px 15px;
+    top: -34px;
+    padding: 0 7px;
+    font-size:13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color:white;
+}
+
+.webix_el_richselect .webix_inp_static span{
+    color:black;
+}
+
+/* END LEFT PANEL STYLE */
+
+/* MAIN VIEW STYLE*/
+
+.drawing_toolbar .webix_el_button button{
+    border:1px solid #3498db;
+    border-radius: 10px;
+}
+
+.drawing_toolbar .webix_el_button button span::before{
+    font-size: 21px;
+    color: #3498db;
+    display: inline-block;
+    margin-top: 4px;
+}
+
+.drawing_toolbar .webix_el_button button.button_selected:hover > span::before,
+.drawing_toolbar .webix_el_button.blue_button button:hover > span::before{
+    color:#3498db;
+}
+
+.drawing_toolbar .webix_el_button button span.fa-connectdevelop::before{
+    margin-left: -1px;
+}
+
+.drawing_toolbar .webix_el_button button span.fa-map-marker::before{
+    margin-left: 3px;
+}
+
+.drawing_toolbar .webix_el_button button span.fa-pencil::before{
+    margin-left: 3px;
+}
+
+.drawing_toolbar .webix_el_button button span.fa-square-o::before{
+    margin-left: 3px;
+    margin-top: 6px;
+}
+
+.drawing_toolbar .webix_el_button.blue_button button, 
+.drawing_toolbar .webix_el_button button.button_selected,
+.drawing_toolbar .webix_el_button button.button_selected:focus{
+    background: #3498db !important;
+} 
+
+.webix_el_button.blue_button button:hover, 
+.drawing_toolbar .webix_el_button button:hover{
+    background: #F4F5F9 !important;
+    border-color: #dbdce0 !important;
+}
+
+.drawing_toolbar .webix_el_button button:active, .drawing_toolbar .webix_el_button button:focus{
+    background: transparent;
+}
+
+.drawing_toolbar .webix_el_button button.button_selected > span::before,
+.drawing_toolbar .webix_el_button button.button_selected:focus > span::before{
+    color:white;
+}
+
+.drawing_toolbar .webix_el_button.blue_button button span::before{
+    color:white;
+    margin-left:3px;
+}
+
+.webix_icon_btn.fa.fa-plus::before{
+    color: #3498db;
+}
+/* .webix_switch_box{
+    height:13px;
+    width:45px !important;
+}
+
+.webix_switch_box button{
+    width: 16px;
+    height: 16px;
+    top:-3px;
+}
+
+.webix_el_switch .webix_label_right{
+    margin-top:0;
+    padding-top:0;
+}
+
+.mainMockupSwitch .webix_label_right{
+    padding-left:10px;
+} */
+
+.webix_inp_bottom_label{
+    font-size: 14px;
+}
+
+.name_template div{
+    padding: 23px 15px;
+    color:#2a5f8a;
+}
+
+.webix_el_switch .webix_el_box label{
+    /* line-height: 20px !important; */
+    font-weight: normal;
+}
+
+.viewer-container{
+    position:relative;
+    width:100%;
+    height:600px;
+    left:0;
+    top:0;
+}
+    
+.viewer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+    
+.container{
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+    
+#image_viewer{
+    pointer-events: auto;
+}
+    
+#geojs .geojs-layer{
+  pointer-events: none;
+}
+
+.geojs-map .geojs-layer.active:not(.hidden) > * {
+    pointer-events: none !important;
+}
+
+.webix_list_item{
+    white-space: nowrap;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+
+/* END MAIN VIEW STYLE */
+
+/* ANNOTATION STYLE */
+.fa-plus:before{
+    font-size: 18px;
+}
+
+.webix_layout_toolbar div.webix_el_label.annotation_label .webix_el_box{
+    letter-spacing: 1px;
+    color: #3498db;
+    font-size: 19px;
+}
+
+.annotation_delete_icon{
+    color:red; 
+    font-size: 23px; 
+    vertical-align: middle; 
+    cursor:pointer;
+}
+
+span.color_preview{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 4px;
+    margin-right: 4px;
+    vertical-align: middle;
+}
+
+.webix_dtable.datatableCounter .webix_ss_body .webix_column > div,
+.webix_el_combo input{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+div.blue_label > div.webix_accordionitem_header.collapsed .webix_accordionitem_label{
+    transform: rotate(180deg);
+    letter-spacing: 2.5px !important;
+    position: absolute;
+    top: 0;
+    left: 20px;
+}
+
+.webix_vscroll_y{
+    overflow-y: auto;
+}
+
+.webix_vscroll_x {
+    overflow-x: auto;
+}
+
+/* END ANNOTATION STYLE */
+
+.webix_list_item:hover{
+    background: #f6f7fa;
+}
+
+.login_button button:hover{
+    background: #fafafa !important;
+}
+
+.slidesTree {
+    overflow: auto !important;
+}
+
+.slidesTree .webix_scroll_cont {
+    min-width: 100%;
+    width: unset !important;
+    display: inline-block !important;
+}
+
+.slidesTree .webix_scroll_cont .webix_tree_item {
+    min-width: 100%;
+    display: flex;
+}
+
+.slidesTree .webix_scroll_cont .webix_tree_item span {
+    height: unset !important;
+    padding-top: 1px !important;
+}
+
+.sidemenuPager .pager_buttons button:hover > span::before{
+    color: #3498db;
+}
+
+i.fa-eyedropper{
+    cursor: pointer;
+    width:100%;
+}
+
+.webix_unclickable_delete_icon{
+    color:gray;
+    cursor: not-allowed;
+}
+
+.fullpageButton{
+    display:none;
+    position: absolute;
+    width:35px;
+    height:38px;
+    top:0px;
+    left:0px;
+    border-radius: 50%;
+}
+
+div.fullpageButton img:hover{
+    cursor: pointer;
+}
+
+.combo-scrollview{
+    overflow-y: auto !important;
+}
+
+.showscroll-combo-scrollview{
+    overflow-y: auto !important;
+}
+
+.webix_overlay {
+    padding: 0;
+}
+
+.webix_overlay .photogallery-overlay {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94A1B3;
+    font-size: 18px;
+}
