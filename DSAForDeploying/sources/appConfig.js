@@ -5,8 +5,8 @@ import aboutPage from "./templates/about.html";
 */
 
 export const appSettings = {
-	serverApiURL: "http://candygram.neurology.emory.edu:8080/api/v1",
-	initialParentId: "5d14f9b0bd4404c6b1d53ec5",
+	serverApiURL: "https://api.digitalslidearchive.org/api/v1",
+	initialParentId: "5b9ef8e3e62914002e454c39",
 	initialParentType: "collection"
 };
 /*
@@ -30,7 +30,7 @@ export const helpWindowsConfig = {
 	},
 	repositoryStats: {
 		label: "Repository Stats",
-		content: "Here just a text string which will be displayed in the window"
+		content: "The CDSA maintains a easily browseable collection of images from the Cancer Genome Atlas (TCGA)"
 	}
 };
 
@@ -43,7 +43,7 @@ export const helpWindowsConfig = {
 	both: "both" or 3
 	default option is both
 */
-export const sideMenuTabConfig = 3;
+export const sideMenuTabConfig = 3;//was 3
 
 /*  CONFIGURATION DATA  */
 
@@ -61,4 +61,4 @@ export let tabsState = {
 
 export const maxComboboxQuantity = 3;
 
-export const mainViewPath = "mainMockup";
+export const mainViewPath = "cdsaMain";
