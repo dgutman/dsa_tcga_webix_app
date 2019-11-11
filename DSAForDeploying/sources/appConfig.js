@@ -61,4 +61,4 @@ export let tabsState = {
 
 export const maxComboboxQuantity = 3;
 
-export const mainViewPath = "cdsaMain";
+export const mainViewPath = "CDSA";

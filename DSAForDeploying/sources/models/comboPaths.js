@@ -65,7 +65,7 @@ class ComboURLPaths {
 	}
 
 	escapeURICharacters(string) {
-		return string.replace(/[;,/?:@&=+$_.!~*'()#-]/g, "");
+		return string.replace(/[;,/?:@&=+$_.!~*'()#]/g, "");
 	}
 
 	compareStrings(str1, str2) {
