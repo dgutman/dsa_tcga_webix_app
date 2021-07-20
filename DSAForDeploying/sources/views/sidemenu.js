@@ -31,6 +31,14 @@ export default class SidemenuView extends JetView {
 			}
 		};
 
+		webix.proxy.loadImagesPagesByCaseName = {
+			$proxy: true,
+			load: function(view, params) {
+				const promise = webix.ajax(this.source);
+				return promise;
+			}
+		};
+
 		const comboScrollView = {
 			view: "scrollview",
 			height: 1,
@@ -93,9 +101,16 @@ export default class SidemenuView extends JetView {
 							let dataview = this.getRoot().queryView({ view: "dataview" });
 							let item = dataview.getItem(id);
 							this.canChangeSlidePath = false;
-							this.app.show(`${this.comboURLPaths.getPathString()}?slide=${item.name}`)
-								.then(() => { this.canChangeSlidePath = true; });
-
+							if(this.urlPaths && this.urlPaths.folders && Array.isArray(this.urlPaths.folders)) {
+								if(this.urlPaths.folders[0] === "caseName") {
+									this.app.show(`CDSA/caseName/${item.tcga.case}?slide=${item.name}`)
+										.then(() => { this.canChangeSlidePath = true; });
+								}
+							}
+							else {
+								this.app.show(`${this.comboURLPaths.getPathString()}?slide=${item.name}`)
+									.then(() => { this.canChangeSlidePath = true; });
+							}
 							if ((item.meta && item.meta.PDFPathReport) || (item.tcga && item.tcga.caseId)) {
 								tabsState.pathologyReport = "enable";
 							}
@@ -577,6 +592,16 @@ export default class SidemenuView extends JetView {
 						this._topLayout.hideProgress();
 					});
 			}
+			else if(this.urlPaths.folders.length > 0) {
+				if(this.urlPaths.folders[0] === "caseName") {
+					const caseName = this.urlPaths.folders[1];
+					if(caseName) {
+						const url = `loadImagesPagesByCaseName->${webix.serverURL}/tcga/image?caseName=${caseName}`;
+						this.$$("photogallery").clearAll();
+						this.$$("photogallery").load(url);
+					}
+				}
+			}
 			else {
 				this.changeSlideByUrl();
 			}
@@ -584,35 +609,45 @@ export default class SidemenuView extends JetView {
 	}
 
 	changeSlideByUrl() {
-		const folderObj = this.getChangedFolder();
-
-		if (folderObj.index !== -1) {
-			this.initialPaths = this.urlPaths;
-			this.initialPaths.folders = this.initialPaths.folders.splice(folderObj.index + 1);
-
-			if (this.initialPaths.slide && !this.comboURLPaths.compareStrings(this.initialPaths.slide, this.oldUrlPaths.slide)) {
-				this.initialSlide = this.initialPaths.slide;
-			}
-
-			const scrollview = this.getRoot().queryView({ view: "scrollview" });
-			const combos = scrollview.queryView({view: "combo"}, "all");
-
-			const changedCombo = combos[folderObj.index];
-			const comboList = changedCombo.getPopup().getBody();
-			const changedItem = comboList.find(item => this.comboURLPaths.compareStrings(item.name, folderObj.name), true);
-			if (changedItem) {
-				const oldValue = changedCombo.getValue();
-				changedCombo.blockEvent();
-				changedCombo.setValue(changedItem.id);
-				changedCombo.unblockEvent();
-				if (oldValue !== changedItem.id) {
-					changedCombo.callEvent("onChange", [changedItem.id]);
-				}
+		if(this.urlPaths && this.urlPaths.folders && Array.isArray(this.urlPaths.folders) && this.urlPaths.folders.length > 0 && this.urlPaths.folders[0] !== "undefind") {
+			if(this.urlPaths.folders[0] === "caseName") {
+				const caseName = this.urlPaths.folders[1];
+				const url = `loadImagesPagesByCaseName->${webix.serverURL}/tcga/images?caseName=${caseName}`;
+				this.$$("photogallery").clearAll();
+				this.$$("photogallery").load(url);
 			}
 		}
-		else if (!this.comboURLPaths.compareStrings(this.urlPaths.slide, this.oldUrlPaths.slide)) {
-			this.initialSlide = this.urlPaths.slide || this.initialSlide;
-			this.$$("photogallery").callEvent("onAfterLoad");
+		else {
+			const folderObj = this.getChangedFolder();
+
+			if (folderObj.index !== -1) {
+				this.initialPaths = this.urlPaths;
+				this.initialPaths.folders = this.initialPaths.folders.splice(folderObj.index + 1);
+
+				if (this.initialPaths.slide && !this.comboURLPaths.compareStrings(this.initialPaths.slide, this.oldUrlPaths.slide)) {
+					this.initialSlide = this.initialPaths.slide;
+				}
+
+				const scrollview = this.getRoot().queryView({ view: "scrollview" });
+				const combos = scrollview.queryView({view: "combo"}, "all");
+
+				const changedCombo = combos[folderObj.index];
+				const comboList = changedCombo.getPopup().getBody();
+				const changedItem = comboList.find(item => this.comboURLPaths.compareStrings(item.name, folderObj.name), true);
+				if (changedItem) {
+					const oldValue = changedCombo.getValue();
+					changedCombo.blockEvent();
+					changedCombo.setValue(changedItem.id);
+					changedCombo.unblockEvent();
+					if (oldValue !== changedItem.id) {
+						changedCombo.callEvent("onChange", [changedItem.id]);
+					}
+				}
+			}
+			else if (!this.comboURLPaths.compareStrings(this.urlPaths.slide, this.oldUrlPaths.slide)) {
+				this.initialSlide = this.urlPaths.slide || this.initialSlide;
+				this.$$("photogallery").callEvent("onAfterLoad");
+			}
 		}
 	}
 
@@ -670,10 +705,12 @@ export default class SidemenuView extends JetView {
 		folderCombos.forEach((combo) => {
 			folderNames.push(combo.getText());
 		});
-		this.comboURLPaths.changeFolder(folderNames)
-			.then(() => {
-				this.canChangeSlidePath = true;
-			});
+		if(this.urlPaths.folders[0] !== "caseName") {
+			this.comboURLPaths.changeFolder(folderNames)
+				.then(() => {
+					this.canChangeSlidePath = true;
+				});
+		}
 	}
 
 	getQueryParamSlide(url) {
