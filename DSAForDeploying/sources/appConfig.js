@@ -59,6 +59,6 @@ export let tabsState = {
 	aperioAnnotations: "disable"
 };
 
-export const maxComboboxQuantity = 3;
+export const maxComboboxQuantity = 2;
 
 export const mainViewPath = "CDSA";
