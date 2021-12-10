@@ -353,7 +353,10 @@ export default class SidemenuView extends JetView {
 			parentId = appSettings.initialParentId;
 			parentType = appSettings.initialParentType;
 		}
-		webix.ajax(`${webix.serverURL}/folder?parentType=${parentType}&parentId=${parentId}`).then((data) => {
+		const params = {
+			limit: 1000
+		};
+		webix.ajax(`${webix.serverURL}/folder?parentType=${parentType}&parentId=${parentId}`, params).then((data) => {
 			data = data.json();
 			if (data.length == 0) {
 				// let lastComboId = this.additionalComboIds[this.additionalComboIds.length - 1];
